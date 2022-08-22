@@ -1,0 +1,42 @@
+ <b>{{title}}</b><br/>
+<div *ngIf="isValid; then elseBlock">
+    Data is valid.
+  </div>
+  <ng-template #elseBlock>
+    Data is not valid.
+  </ng-template><br>
+  <h3>{{myNumEnum}}</h3><br>  
+    <table>  
+          <thead>  
+                <tr>  
+                       <th>Id</th>  
+                        <th>Name</th>  
+                        <th>Job</th> 
+                </tr>  
+            </thead>  
+                <tbody>  
+                    <tr *ngFor="let emp of emp1;">  
+                        <td>{{emp.Id}}</td>  
+                        <td>{{emp.Name}}</td>  
+                        <td>{{emp.Job}}</td>    
+                    </tr>  
+                </tbody>  
+            </table><br>
+<select (change)="SelectedIds($event)">
+    <option value="">Select</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <h2>You Have Selected the Id</h2>
+  <div [ngSwitch] = 'values'>
+    <h3 *ngSwitchCase="1">1</h3>
+    <h3 *ngSwitchCase="2">2</h3>
+    <h3 *ngSwitchCase="3">3</h3>
+<h3 *ngSwitchDefault="">You have not selected any Id</h3>
+</div><br>
+<h3 [ngStyle]="{backgroundColor:getOnlineStatusColor()}">  
+    Server Online Status is: {{onlineStatus}} </h3><br>  
+<h3 [ngStyle]="{backgroundColor:getOfflineStatusColor()}">  
+    Server Offline Status is: {{offlineStatus}} </h3>   
+  
